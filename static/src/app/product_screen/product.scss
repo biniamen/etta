@@ -1,0 +1,50 @@
+.password-prompt-container {
+    position: fixed;
+    left: 50%;
+    top: 35%;
+    border: 1px solid white;
+    padding: 16px;
+    background: lightblue;
+    z-index: 555;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    /* Adjust as needed */
+    max-width: 80%;
+    /* Responsive max-width */
+}
+
+.password-dropdown {
+    margin: 8px 0;
+    padding: 5px 10px;
+    display: block;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.password-button-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.password-ok-button,
+.password-cancel-button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.password-ok-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+.password-cancel-button {
+    background-color: white;
+    color: black;
+    border: 2px solid red;
+}

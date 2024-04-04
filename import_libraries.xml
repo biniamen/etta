@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="pos_retail_offline_index" name="index pos ui" inherit_id="point_of_sale.index">
+        <xpath expr="//head/title" position="before">
+            <link rel="manifest" href="/pos/manifest.webmanifest" crossorigin="use-credentials"/>
+            <script type="text/javascript">
+                var odoo =<t t-raw="json.dumps({
+                    'csrf_token': request.csrf_token(None),
+                    'session_info': session_info,
+                    '__session_info__': session_info,
+                    'login_number': login_number,
+                    'debug': debug,
+                    'pos_session_id': pos_session_id,
+                })"/>;
+            </script>
+        </xpath>
+    </template>
+
+</odoo>

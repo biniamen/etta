@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="pos_etta.Navbar" t-inherit="point_of_sale.Navbar" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('pos-branding')]/img" position="replace">
+            <img class="pos-logo h-75 ms-3 me-auto align-self-center" t-on-click="() => debug.toggleWidget()" src="/pos_etta/static/img/app_logo.png"/>
+            <span t-on-click="turnOffRefund" t-if="isRefund" style="padding: 0px; align-content: center; margin: 0px; color: red; font-weight:bold;">REFUND MODE</span>
+            <!-- <span t-on-click="turnOnRefund" t-if="not isRefund" style="padding: 0px; align-content: center; margin: 0px; color: green; font-weight:bold;">SALE MODE</span> -->
+        </xpath>
+        <xpath expr="//div[hasclass('pos-branding')]" position="after">
+            <span t-on-click="turnOffRefund" t-if="ui.isSmall and isRefund" style="padding: 0px; align-content: center; margin: 0px; color: red; font-weight:bold;">REFUND MODE</span>
+            <!-- <span t-on-click="turnOnRefund" t-if="ui.isSmall and not isRefund" style="padding: 0px; align-content: center; margin: 0px; color: green; font-weight:bold;">SALE MODE</span> -->
+        </xpath>
+        <xpath expr="//div[contains(@class, 'menu-button')]/ul/li/ul" position="inside">
+            <li class="menu-item navbar-button edit-button" t-on-click="onZmallClicked">
+                <a class="dropdown-item py-2">Z Mall</a>
+            </li>
+            <li t-if="isAdvancedUserAccess" class="menu-item navbar-button edit-button" t-on-click="onPrintAllPlusClick">
+                <a class="dropdown-item py-2">Print All PLU's</a>
+            </li>
+            <li t-if="isAdvancedUserAccess" class="menu-item navbar-button edit-button" t-on-click="onPrintAllTaxRates">
+                <a class="dropdown-item py-2">Print All Tax Rates</a>
+            </li>
+            <li class="menu-item navbar-button edit-button" t-on-click="() => this.onClick()">
+                <a class="dropdown-item py-2">Fiscal Reading</a>
+            </li>
+             <li class="menu-item navbar-button edit-button" t-on-click="onXReportClick">
+                <a class="dropdown-item py-2">Print X-Session</a>
+            </li>
+            <li t-if="isAdvancedUserAccess" class="menu-item navbar-button" t-on-click="onZReportClick">
+                <a class="dropdown-item py-2">Print Z-Report</a>
+            </li>
+        </xpath>
+    </t>
+
+</templates>
